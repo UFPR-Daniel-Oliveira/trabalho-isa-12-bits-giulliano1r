@@ -1,11 +1,13 @@
-ADDI 4     # A0 <- 4
-ADD T0, A0 # T0 <- 4
-ADDI 5     # A0 <- 5
-ADD T1, A0 # T1 <- 5
+ADDI 4        # A0 <- 4
+ADD T0, A0    # T0 <- 4
+MUL A0, zero  # A0 <- (4 * 0)
+ADDI 1        # A0 <- 1
+ADD T1, A0    # T1 <- 1
 
-MUL T0, T1 # T0 <- 4 * 5
+LOOP:
+BEQ R15 EXIT   # A0 == 0 ? -> EXIT
+SUB T1, T1    # T1--
+J LOOP
 
-ADDI 2
-ADD T2, A0 # T2 <- 2
-
-DIV T0, T2 # T1 < (4 * 5) / 2
+EXIT:
+ADDI T1, 3    # T1 <- 3
