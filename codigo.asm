@@ -1,11 +1,11 @@
-ADDI 4        # A0 <- 4
-ADD T0, A0    # T0 <- 4
-MUL A0, zero  # A0 <- (4 * 0)
-ADDI 1        # A0 <- 1
-ADD T1, A0    # T1 <- 1
+ADDI 4        # R15 <- 4
+ADD T0, R15    # T0 <- 4
+MUL R15, zero  # R15 <- (4 * 0)
+ADDI 1        # R15 <- 1
+ADD T1, R15    # T1 <- 1
 
 LOOP:
-BEQ R15 EXIT   # A0 == 0 ? -> EXIT
+BEQ R15 EXIT   # R15 == 0 ? -> EXIT
 SUB T1, T1    # T1--
 J LOOP
 
