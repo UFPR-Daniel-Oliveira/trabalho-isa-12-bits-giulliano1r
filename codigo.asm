@@ -1,13 +1,8 @@
-ADDI 4        # R15 <- 4
-ADD T0, R15    # T0 <- 4
-MUL R15, zero  # R15 <- (4 * 0)
-ADDI 1        # R15 <- 1
-ADD T1, R15    # T1 <- 1
-
-LOOP:
-BEQ R15 EXIT   # R15 == 0 ? -> EXIT
-SUB T1, T1    # T1--
-J LOOP
-
-EXIT:
-ADDI T1, 3    # T1 <- 3
+addi 4              # r15 <- 4
+add t0, r15         # t0 <- r15(4)
+mul r15, zero       # zera r15
+addi 1              # r15 <- 1
+add t1, r15         # t1 <- r15(1)
+beq t0, EXIT        # t0 = 0 ? -> EXIT (pula 2)
+sub t0, t1          # t0 - t1(1)
+j loop              # pula -2 instrucoes
